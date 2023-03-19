@@ -19,6 +19,7 @@ requirements:
     - python >=3.6
     - pytest-runner
     - pip
+    - versioneer
   run:
     - python >=3.6
 
