@@ -1,5 +1,5 @@
 {% set name = "StrEnum" %}
-{% set version = "0.4.12" %}
+{% set version = "0.4.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 75e234fea070aabae9b03b63385880e286defdcdf6fb2933cde4f964f7763544
+  sha256: 878fb5ab705442070e4dd1929bb5e2249511c0bcf2b0eeacf3bcd80875c82eff
 
 build:
   number: 0
