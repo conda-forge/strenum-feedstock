@@ -6,26 +6,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 878fb5ab705442070e4dd1929bb5e2249511c0bcf2b0eeacf3bcd80875c82eff
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pytest-runner
     - pip
     - versioneer
   run:
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
   imports:
