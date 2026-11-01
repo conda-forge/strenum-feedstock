@@ -15,15 +15,14 @@ source:
 build:
   number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - pytest-runner
-    - setuptools
-    - versioneer
+    - setuptools >=64
+    - setuptools-scm >=8
   run:
     - python >=${{ python_min }}
 
@@ -35,6 +34,14 @@ tests:
       python_version:
         - ${{ python_min }}
         - "*"
+  - files:
+      source:
+        - tests
+    requirements:
+      run:
+        - pytest
+    script:
+      - python -m pytest tests -q
 
 about:
   license: MIT
